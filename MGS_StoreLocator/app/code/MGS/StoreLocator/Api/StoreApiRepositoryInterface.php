@@ -37,7 +37,8 @@ interface StoreApiRepositoryInterface {
           + store[lat] = lat; Latitude
           + store[lng] = lng; Latitude
           + store[radius] = radius;
-        EX  
+        EX
+          Method GET
           http://127.0.0.1/magento/rest/getstore/?store[page]=1&store[country]=VN&store[lat]=21.019914
 
       There must be a params store [] on the url when retrieve stores by filter
