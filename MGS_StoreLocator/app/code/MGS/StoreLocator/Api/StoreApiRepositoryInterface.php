@@ -5,41 +5,42 @@ namespace MGS\StoreLocator\Api;
 interface StoreApiRepositoryInterface {
 
   /**
-     Lấy key của admin Role Administrators hoặc admin có Role Rources Store Locator->Get Stores
+     To get the admin key, Login to Role Administrators or admin with Role Rources Store Locator-> Get Stores
+     Method POST
    http://127.0.0.1/magento/rest/V1/integration/admin/token?username=admin&password=pass
 
-     - Để lấy toàn bộ store
-
+     - To get all store
+   Method GET
    http://127.0.0.1/magento/rest/getallstore/
 
-     - Tạo API để lấy về các store được lưu trong bảng của extension StoreLocator (10 kết quả), truyền thêm param để lấy thêm cho các page khác (p=2, p=3...)
-
+     - Create an API to get the stores stored in the StoreLocator extension table (10 results), pass more param to get more for other pages (p = 2, p = 3 ...)
           + store[page] = Số trang;
-          Không nhập store[page], store[page]page = 1;
+          Default store[page]page = 1;
           
-
+          Method GET
           http://127.0.0.1/magento/rest/getstore/?store[page]=1
 
-       - Lấy về các stores dựa theo các params truyền lên (country, state, city, zipcode)
+       - Retrieves stores based on passed parameters (country, state, city, zipcode)
           + store[country] = country;
           + store[state] = state;
           + store[city] = city;
           + store[zipcode] = zipcode;
-       Muốn lấy về store theo param nào thì thêm param đó vào url sau dấu &;
+       If you want to get the store according to any param, add that param to the url after the &;
        EX
+          Method GET
           http://127.0.0.1/magento/rest/getstore/?store[page]=1&store[country]=VN
-
+          Method GET
           http://127.0.0.1/magento/rest/getstore/?store[page]=1&store[country]=VN&store[city]=Hà Nội
 
-       - Lấy về các stores dựa theo các params (location, radius)
+       - Retrieve stores by params (location, radius).
 
-          + store[lat] = lat; Vĩ độ
-          + store[lng] = lng; Kinh độ
+          + store[lat] = lat; Latitude
+          + store[lng] = lng; Latitude
           + store[radius] = radius;
         EX  
           http://127.0.0.1/magento/rest/getstore/?store[page]=1&store[country]=VN&store[lat]=21.019914
 
-      Phải có 1 params store trên url khi get store có filter
+      There must be a params store [] on the url when retrieve stores by filter
    */
 
     /**
